@@ -36,12 +36,12 @@ namespace WebApplication2.Controllers
                 {
                     Leave leave = new Leave();
                     leave.Id = Convert.ToInt32(reader["Id"]);
-                    leave.StartDate = Convert.ToDateTime(reader["StartDate"]);
-                    leave.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    leave.StartDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["StartDate"]));
+                    leave.EndDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["EndDate"]));
+                    leave.TotalDays = (leave.EndDate.ToDateTime(TimeOnly.MinValue) - leave.StartDate.ToDateTime(TimeOnly.MinValue)).Days;
                     leave.Reason = reader["Reason"].ToString();
                     leave.User_Name = reader["User"].ToString();
                     leave.Admin_Name = reader["Admin"].ToString();
-                    leave.TotalDays = (leave.EndDate - leave.StartDate).Days;
                     leave.User_Department = reader["Department"].ToString();
                     leave.CreatedAt = Convert.ToDateTime(reader["CreatedAt"]);
                     leave.UpdatedAt = Convert.ToDateTime(reader["UpdatedAt"]);
@@ -74,8 +74,9 @@ namespace WebApplication2.Controllers
                 while (reader.Read())
                 {
                     leave.Id = Convert.ToInt32(reader["Id"]);
-                    leave.StartDate = Convert.ToDateTime(reader["StartDate"]);
-                    leave.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    leave.StartDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["StartDate"]));
+                    leave.EndDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["EndDate"]));
+                    leave.TotalDays = (leave.EndDate.ToDateTime(TimeOnly.MinValue) - leave.StartDate.ToDateTime(TimeOnly.MinValue)).Days;
                     leave.Reason = reader["Reason"].ToString();
                     leave.User_Name = reader["User"].ToString();
                     leave.Admin_Name = reader["Admin"].ToString();
@@ -109,6 +110,7 @@ namespace WebApplication2.Controllers
                 { 
                     var leave = new GetLeavesModel();
 
+                    leave.Id = Convert.ToInt32(reader["Id"]);
                     leave.StartDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["StartDate"]));
                     leave.EndDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["EndDate"]));
                     leave.Status = reader["LeaveStatus"].ToString();
