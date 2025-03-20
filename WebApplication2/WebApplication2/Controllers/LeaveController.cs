@@ -113,7 +113,7 @@ namespace WebApplication2.Controllers
                     leave.EndDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["EndDate"]));
                     leave.Status = reader["LeaveStatus"].ToString();
                     leave.LeaveType = reader["LeaveType"].ToString();
-                    leave.Reason = reader["Reason"].ToString();
+                    //leave.Reason = reader["Reason"].ToString();
 
                     leaves.Add(leave);
                 }
