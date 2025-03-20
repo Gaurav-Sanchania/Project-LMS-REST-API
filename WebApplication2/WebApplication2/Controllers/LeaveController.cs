@@ -238,5 +238,23 @@ namespace WebApplication2.Controllers
                 cmd.ExecuteNonQuery();
             }
         }
+
+        // POST: LeaveController/DeleteLeaveRequest/{id}
+        [HttpPost]
+        [Route("DeleteLeaveRequest/{id}")]
+        public void DeleteLeaveRequest(int id)
+        {
+            string cs = _config.GetConnectionString("LeaveZ");
+            SqlConnection con = new SqlConnection(cs);
+            using (SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Leaves]", con))
+            {
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                con.Open();
+                cmd.Parameters.AddWithValue("@case", 4);
+                cmd.Parameters.AddWithValue("Id", id);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

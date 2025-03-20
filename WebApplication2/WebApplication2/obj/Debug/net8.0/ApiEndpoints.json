@@ -45,6 +45,28 @@
   },
   {
     "ContainingType": "WebApplication2.Controllers.LeaveController",
+    "Method": "DeleteLeaveRequest",
+    "RelativePath": "LeaveController/DeleteLeaveRequest/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication2.Controllers.LeaveController",
     "Method": "GetAllHolidays",
     "RelativePath": "LeaveController/GetAllHolidays",
     "HttpMethod": "GET",
