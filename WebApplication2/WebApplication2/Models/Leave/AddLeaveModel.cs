@@ -8,5 +8,7 @@
         public int UserId { get; set; }
         public string? AdminEmail { get; set; }
         public int LeaveType { get; set; }
+        public string? CC { get; set; }
+        public string? BCC { get; set; }
     }
 }

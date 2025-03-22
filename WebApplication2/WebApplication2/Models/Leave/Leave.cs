@@ -16,5 +16,7 @@
         public string? UpdatedBy { get; set; }
         public string? Status { get; set; }
         public string? Leave_Type { get; set; }
+        public string? CC { get; set; }
+        public string? BCC { get; set; }
     }
 }

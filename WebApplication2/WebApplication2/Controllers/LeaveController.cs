@@ -49,6 +49,8 @@ namespace WebApplication2.Controllers
                     leave.UpdatedBy = reader["UpdatedBy"].ToString();
                     leave.Status = reader["Status"].ToString();
                     leave.Leave_Type = reader["LeaveType"].ToString();
+                    leave.CC = reader["CC"].ToString();
+                    leave.BCC = reader["BCC"].ToString();
 
                     leaves.Add(leave);
                 }
@@ -86,6 +88,8 @@ namespace WebApplication2.Controllers
                     leave.UpdatedBy = reader["UpdatedBy"].ToString();
                     leave.Status = reader["Status"].ToString();
                     leave.Leave_Type = reader["LeaveType"].ToString();
+                    leave.BCC = reader["BCC"].ToString();
+                    leave.CC = reader["CC"].ToString();
                 }
             }
             return leave;
@@ -234,6 +238,8 @@ namespace WebApplication2.Controllers
                 cmd.Parameters.AddWithValue("@UserId", leave.UserId);
                 cmd.Parameters.AddWithValue("@Reason", leave.Reason);
                 cmd.Parameters.AddWithValue("@LeaveType", leave.LeaveType);
+                cmd.Parameters.AddWithValue("@CC", leave.CC);
+                cmd.Parameters.AddWithValue("@BCC", leave.BCC);
 
                 cmd.ExecuteNonQuery();
             }
