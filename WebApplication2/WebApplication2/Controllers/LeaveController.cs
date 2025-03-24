@@ -38,7 +38,7 @@ namespace WebApplication2.Controllers
                     leave.Id = Convert.ToInt32(reader["Id"]);
                     leave.StartDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["StartDate"]));
                     leave.EndDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["EndDate"]));
-                    leave.TotalDays = (leave.EndDate.ToDateTime(TimeOnly.MinValue) - leave.StartDate.ToDateTime(TimeOnly.MinValue)).Days;
+                    leave.TotalDays = ((leave.EndDate.ToDateTime(TimeOnly.MinValue) - leave.StartDate.ToDateTime(TimeOnly.MinValue)).Days) + 1;
                     leave.Reason = reader["Reason"].ToString();
                     leave.User_Name = reader["User"].ToString();
                     leave.Admin_Name = reader["Admin"].ToString();
@@ -78,7 +78,7 @@ namespace WebApplication2.Controllers
                     leave.Id = Convert.ToInt32(reader["Id"]);
                     leave.StartDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["StartDate"]));
                     leave.EndDate = DateOnly.FromDateTime(Convert.ToDateTime(reader["EndDate"]));
-                    leave.TotalDays = (leave.EndDate.ToDateTime(TimeOnly.MinValue) - leave.StartDate.ToDateTime(TimeOnly.MinValue)).Days;
+                    leave.TotalDays = ((leave.EndDate.ToDateTime(TimeOnly.MinValue) - leave.StartDate.ToDateTime(TimeOnly.MinValue)).Days) + 1;
                     leave.Reason = reader["Reason"].ToString();
                     leave.User_Name = reader["User"].ToString();
                     leave.Admin_Name = reader["Admin"].ToString();
