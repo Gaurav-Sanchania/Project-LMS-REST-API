@@ -258,6 +258,7 @@ namespace WebApplication2.Controllers
                     user.LeaveBalance = Convert.ToInt32(reader["LeaveBalance"]);
                     user.LeaveTypeId = Convert.ToInt32(reader["LeaveTypeId"]);
                     user.LeaveType = reader["LeaveType"].ToString();
+                    user.MaxLeave = Convert.ToInt32(reader["MaxLeave"]);
 
                     users.Add(user);
                 }

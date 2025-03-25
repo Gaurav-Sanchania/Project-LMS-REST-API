@@ -6,5 +6,6 @@
         public string? LeaveType { get; set; }
         public int LeaveBalance { get; set; }
         public int LeaveTypeId { get; set; }
+        public int MaxLeave { get; set; }
     }
 }
