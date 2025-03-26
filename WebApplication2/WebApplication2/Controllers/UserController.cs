@@ -49,6 +49,8 @@ namespace WebApplication2.Controllers
                     user.UserType = reader["UserType"].ToString();
                     //user.LeaveBalance = Convert.ToInt32(reader["LeaveBalance"]);
                     user.Password = reader["Password"].ToString();
+                    user.Depart_Id = Convert.ToInt32(reader["DepartmentType"]);
+                    user.UserType_Id = Convert.ToInt32(reader["UserType_Id"]);
 
                     users.Add(user);
                 }
@@ -370,7 +372,7 @@ namespace WebApplication2.Controllers
         // Post: UserController/UpdateUser
         [HttpPost]
         [Route("UpdateUser")]
-        public void UpdateUser([FromBody] EditUserModel user)
+        public void UpdateUser(EditUserModel user)
         {
             string CS = _config.GetConnectionString("LeaveZ");
             SqlConnection con = new SqlConnection(CS);
